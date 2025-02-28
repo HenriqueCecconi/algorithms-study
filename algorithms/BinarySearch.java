@@ -12,15 +12,14 @@ public class BinarySearch {
     public static int binarySearch(int[] array, int target) {
         int low = 0;
         int high = array.length - 1;
-        int mid, guess;
+        int mid;
 
         while (low <= high) {
             mid = (low + high) / 2;
-            guess = array[mid];
-            if (guess == target) {
+            if (array[mid] == target) {
                 return mid;
             }
-            if (guess > target) {
+            if (array[mid] > target) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
