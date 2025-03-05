@@ -15,20 +15,36 @@ public class Main {
         return array;
     }
 
-    @SuppressWarnings("unused")
-    private static void binarySearchExecutor() {
-        Scanner scanner = new Scanner(System.in);
+    public static int[] orderedArray() {
         int[] array = new int[100];
         for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
+            array[i] = i;
         }
-        System.out.println("Realizing a binary search on an array from 0 to 100.");
+        return array;
+    }
+
+    @SuppressWarnings("unused")
+    private static void binarySearchExecutor(Scanner scanner) {
+        System.out.println("Realizing a binary search on an array from 0 to 99.");
         System.out.println("Input the number to be found: ");
+        int[] array = orderedArray();
+        System.out.println(Arrays.toString(array));
         int target = scanner.nextInt();
         int index = BinarySearch.binarySearch(array, target);
         System.out.printf("The position of %d is %d", target, index);
         System.out.println();
-        scanner.close();
+    }
+
+    @SuppressWarnings("unused")
+    private static void recursiveBinarySearchExecutor(Scanner scanner) {
+        System.out.println("Realizing a binary search on an array from 0 to 99.");
+        System.out.println("Input the number to be found: ");
+        int[] array = orderedArray();
+        System.out.println(Arrays.toString(array));
+        int target = scanner.nextInt();
+        int index = RecursiveBinarySearch.recursiveBinarySearch(array, target, 0, array.length - 1);
+        System.out.printf("The position of %d is %d", target, index);
+        System.out.println();
     }
 
     @SuppressWarnings("unused")
@@ -44,7 +60,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // binarySearchExecutor();
+        Scanner scanner = new Scanner(System.in);
+        binarySearchExecutor(scanner);
+        recursiveBinarySearchExecutor(scanner);
         // selectionSortExecutor();
+        scanner.close();
     }
 }
